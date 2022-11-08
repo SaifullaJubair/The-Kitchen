@@ -51,11 +51,16 @@ const Register = () => {
 
 
    return (
-      <div className="hero min-h-screen bg-base-200">
-         <div className="hero-content flex-col">
-            <h1 className="text-5xl font-bold">Please Register Now!</h1>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div className="hero w-full">
+         <div className="hero-content grid  md:grid-cols-2 flex-col lg:flex-row ">
+
+            <div className="text-center lg:text-left mx-auto">
+               <img src='https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000' alt="" />
+            </div>
+
+            <div className="card flex-shrink-0  max-w-sm shadow-2xl mx-auto">
                <form onSubmit={handleSubmit} className="card-body">
+                  <h1 className="text-3xl font-bold">Please Register Now!</h1>
                   <div className="form-control">
                      <label className="label">
                         <span className="label-text">Name</span>
@@ -97,6 +102,8 @@ const Register = () => {
                   </div>
                </form>
             </div>
+
+
          </div>
       </div>
    );

@@ -23,57 +23,47 @@ const Header = () => {
                   <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
                      <li><Link to='/services'>Services</Link></li>
-                     <li>
-                        {
-                           user?.uid ?
-                              <>
-                                 <Link to='/add_service'>Add_Services</Link>
-                                 <button className='' onClick={handleLogOut}> Logout</button>
-                              </>
-                              :
-                              <>
-                                 <Link to='/register' className=''>SignUp</Link>
-                                 <Link to='/login' className=' '>Login</Link>
-                              </>
-                        }
-                     </li>
+                     <li><Link to='/my_review'>My Review</Link></li>
                      <li tabIndex={0}>
                         <Link to='/blogs' className="justify-between">Blogs</Link>
                      </li>
                   </ul>
                </div>
                <Link to='/' className="btn btn-ghost normal-case text-xl">
-                  <div className='flex items-center ml-2 font-bold text-3xl'>
+                  <div className='flex items-center ml-2 font-bold lg:text-3xl text-base'>
                      <img className='w-8 mr-2' src={pic} alt="" />
                      <h3>Kitchen</h3>
                   </div>
                </Link>
             </div>
-            <div className="navbar-end hidden lg:flex text-lg font-semibold">
-               <ul className="menu menu-horizontal p-0">
-                  <li className='mx-2'><Link to='/services'>Services</Link></li>
-                  <li className='mx-2'><Link to='blogs'>Blogs</Link></li>
-               </ul>
-            </div>
-            <div className="mr-6">
+
+            <div className="mr-6 navbar-end">
+               <div className=" hidden  lg:flex lg:text-lg font-semibold">
+                  <ul className="menu menu-horizontal">
+                     <li className='mx-1'><Link to='/services'>Services</Link></li>
+                     <li className='mx-1'><Link to='blogs'>Blogs</Link></li>
+                     <li className='mx-1'><Link to='my_review'>My Review</Link></li>
+                  </ul>
+               </div>
                {
                   user?.uid ?
                      <>
-                        <Link to='/add_service' className='text-lg font-semibold'>Add_Services</Link>
-                        <button className='mx-2 lg:text-lg font-semibold' onClick={handleLogOut}> Logout</button>
+                        <Link to='/add_service' className='lg:text-lg  text-xs font-semibold'>Add_Services</Link>
+                        <button className='mx-1 lg:text-lg text-xs font-semibold' onClick={handleLogOut}> Logout</button>
+
                      </>
                      :
                      <>
-                        <Link to='/register' className='mx-2 text-lg font-semibold'>SignUp</Link>
-                        <Link to='/login' className='mr-2 text-lg font-semibold'>Login</Link>
+                        <Link to='/register' className='mx-1 lg:text-lg text-xs font-semibold'>SignUp</Link>
+                        <Link to='/login' className='mr-1 lg:text-lg text-xs font-semibold'>Login</Link>
                      </>
                }
                <Link to='/profile'>
                   {
                      user?.photoURL ?
-                        <span className='flex item-center'>
-                           <img title={user?.displayName} className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />
-                        </span>
+                        <>
+                           <img title={user?.displayName} className='h-12 rounded-full ' src={user?.photoURL} alt="User_Photo" />
+                        </>
                         :
                         <span ><FaUserAlt></FaUserAlt> </span>
                   }
