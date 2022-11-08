@@ -23,11 +23,11 @@ const Header = () => {
                   <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
                      <li><Link to='/services'>Services</Link></li>
-                     <li><Link to='/add_services'>Add_Services</Link></li>
                      <li>
                         {
                            user?.uid ?
                               <>
+                                 <Link to='/add_service'>Add_Services</Link>
                                  <button className='' onClick={handleLogOut}> Logout</button>
                               </>
                               :
@@ -37,7 +37,6 @@ const Header = () => {
                               </>
                         }
                      </li>
-                     <li><Link to='/addservice'>Add Services</Link></li>
                      <li tabIndex={0}>
                         <Link to='/blogs' className="justify-between">Blogs</Link>
                      </li>
@@ -53,16 +52,15 @@ const Header = () => {
             <div className="navbar-end hidden lg:flex text-lg font-semibold">
                <ul className="menu menu-horizontal p-0">
                   <li className='mx-2'><Link to='/services'>Services</Link></li>
-                  <li className='mx-2'><Link to='/addservice'>Add Service</Link></li>
                   <li className='mx-2'><Link to='blogs'>Blogs</Link></li>
                </ul>
             </div>
             <div className="navbar-end mr-6">
-               <input type="checkbox" className="toggle mr-2" />
                {
                   user?.uid ?
                      <>
-                        <button className='mx-2' onClick={handleLogOut}> Logout</button>
+                        <Link to='/add_service' className='text-lg font-semibold'>Add_Services</Link>
+                        <button className='mx-2 lg:text-lg font-semibold' onClick={handleLogOut}> Logout</button>
                      </>
                      :
                      <>
@@ -74,7 +72,6 @@ const Header = () => {
                   {
                      user?.photoURL ?
                         <span className='flex item-center'>
-                           <p className='mt-3 mr-2'>{user?.displayName}</p>
                            <img title={user?.displayName} className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />
                         </span>
                         :
