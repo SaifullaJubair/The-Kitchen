@@ -1,23 +1,22 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
-import { SpinnerCircular } from 'spinners-react';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const PrivateRoute = ({ children }) => {
 
    const { user, loading } = useContext(AuthContext)
-
    const location = useLocation();
 
    if (loading) {
-      return <div className='flex justify-center items-center'><p className='text-xl'>Loading...<SpinnerCircular /></p></div>
+      return <div className='flex justify-center items-center'><p className='text-3xl'>Loading...  <InfinitySpin></InfinitySpin> </p></div>
    }
 
-   if (!user) {
-      return <Navigate to='/login' state={{ from: location }} replace></Navigate>
+   if (user) {
+      return children;
    }
+   return <Navigate to='/login' state={{ from: location }} replace></Navigate>
 
-   return children;
 };
 
 export default PrivateRoute;

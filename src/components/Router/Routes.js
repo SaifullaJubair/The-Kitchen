@@ -7,6 +7,7 @@ import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Services from "../Services/Services";
+import PrivateRoute from "./PrivateRoute";
 import UnKnownRoutes from "./UnKnownRoutes";
 
 export const routes = createBrowserRouter([
@@ -24,7 +25,7 @@ export const routes = createBrowserRouter([
          },
          {
             path: '/add_service',
-            element: <AddService></AddService>
+            element: <PrivateRoute><AddService></AddService></PrivateRoute>
          },
          {
             path: '/register',
@@ -36,7 +37,7 @@ export const routes = createBrowserRouter([
          },
          {
             path: '/blogs',
-            element: <Blogs></Blogs>
+            element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
          },
          {
             path: '/footer',

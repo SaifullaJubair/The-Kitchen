@@ -55,7 +55,7 @@ const Header = () => {
                   <li className='mx-2'><Link to='blogs'>Blogs</Link></li>
                </ul>
             </div>
-            <div className="navbar-end mr-6">
+            <div className="mr-6">
                {
                   user?.uid ?
                      <>
