@@ -75,6 +75,9 @@ const Login = () => {
                   </div>
                   <div className="form-control mt-2">
                      <button className="btn btn-primary my-2">Login</button>
+                     <button className="btn btn-primary" onClick={handleGoogleSignIn}>
+                        <p>Google SignIn</p>
+                     </button>
                   </div>
                </form>
             </div>
