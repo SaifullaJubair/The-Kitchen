@@ -57,7 +57,32 @@ const Header = () => {
                   <li className='mx-2'><Link to='blogs'>Blogs</Link></li>
                </ul>
             </div>
+            <div className="navbar-end mr-6">
+               <input type="checkbox" className="toggle mr-2" />
+               {
+                  user?.uid ?
+                     <>
+                        <button className='mx-2' onClick={handleLogOut}> Logout</button>
+                     </>
+                     :
+                     <>
+                        <Link to='/register' className='mx-2 text-lg font-semibold'>SignUp</Link>
+                        <Link to='/login' className='mr-2 text-lg font-semibold'>Login</Link>
+                     </>
+               }
+               <Link to='/profile'>
+                  {
+                     user?.photoURL ?
+                        <span className='flex item-center'>
+                           <p className='mt-3 mr-2'>{user?.displayName}</p>
+                           <img title={user?.displayName} className='h-12 rounded-full' src={user?.photoURL} alt="User_Photo" />
+                        </span>
+                        :
+                        <span ><FaUserAlt></FaUserAlt> </span>
+                  }
 
+               </Link>
+            </div>
          </div>
       </div>
    );
