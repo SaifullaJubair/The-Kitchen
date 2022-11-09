@@ -3,9 +3,9 @@ import React from 'react';
 const Blog = () => {
    return (
 
-      <div className='flex flex-col justify-center min-h-[62vh]'>
-         <h2 className='text-center text-3xl my-5'>This is Blog</h2>
-         <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box">
+      <div className='flex flex-col justify-center min-h-[62vh] lg:mx-60 md:mx-20'>
+         <h2 className='text-center text-3xl my-5 font-bold'>Blog</h2>
+         <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box my-4 ">
             <div className="collapse-title text-xl font-medium">
                Difference between SQL and NoSQL?
             </div>
@@ -21,7 +21,7 @@ const Blog = () => {
                   Support and communities.</p>
             </div>
          </div>
-         <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box">
+         <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box my-4">
             <div className="collapse-title text-xl font-medium">
                What is JWT, and how does it work?
             </div>
@@ -30,7 +30,7 @@ const Blog = () => {
                </p>
             </div>
          </div>
-         <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box">
+         <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box my-4">
             <div className="collapse-title text-xl font-medium">
                What is the difference between javascript and NodeJS?
             </div>
@@ -39,7 +39,7 @@ const Blog = () => {
                </p>
             </div>
          </div>
-         <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box">
+         <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box my-4">
             <div className="collapse-title text-xl font-medium">
                How does NodeJS handle multiple requests at the same time?
             </div>
