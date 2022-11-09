@@ -9,7 +9,7 @@ const Footer = () => {
 
          <footer className="footer footer-center p-10 bg-primary text-primary-content">
             <div>
-               <img className='w-14 mr-2' src='https://i.ibb.co/KNR8XZg/image-removebg-preview.png' alt="" />
+               <Link to='/'><img className='w-14 mr-2' src='https://i.ibb.co/KNR8XZg/image-removebg-preview.png' alt="" /></Link>
                <p>Copyright © 2022 - All right reserved</p>
             </div>
             <div>

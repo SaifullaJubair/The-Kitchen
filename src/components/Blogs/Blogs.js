@@ -1,9 +1,11 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blog = () => {
    return (
 
       <div className='flex flex-col justify-center min-h-[66vh] lg:mx-60 md:mx-20'>
+         <Helmet><title>Blogs</title></Helmet>
          <h2 className='text-center text-3xl my-5 font-bold'>Blog</h2>
          <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box my-4 ">
             <div className="collapse-title text-xl font-medium">

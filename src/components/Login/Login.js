@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 
 
 import { AuthContext } from '../Context/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -49,6 +50,9 @@ const Login = () => {
 
    return (
       <div className="hero w-full ">
+         <Helmet>
+            <title>Log-In</title>
+         </Helmet>
          <div className="hero-content grid gap-10 md:grid-cols-2 flex-col lg:flex-row ">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto">
                <form onSubmit={handleLogin} className="card-body">

@@ -1,10 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import MainCarousel from './AwesomeSlider';
 
 const Home = () => {
    return (
 
       <div>
+         <Helmet>
+            <title>The Kitchen: Home</title>
+         </Helmet>
          <div className='mb-36'>
             <MainCarousel></MainCarousel>
          </div>
@@ -39,7 +43,7 @@ const Home = () => {
                   <h1> <span className='text-slate-400 text-2xl'>02</span> Select menu</h1>
                </div>
                <div className='mx-auto my-8'>
-                  <img src="https://i.ibb.co/DzVHKS9/illustration-3.png" alt="" />
+                  <img src="https://i.ibb.co/Srxxk6r/illustration-3.png" alt="" />
                   <h1> <span className='text-slate-400 text-2xl'>03</span> Wait for delivery</h1>
                </div>
             </div>
