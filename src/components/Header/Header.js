@@ -13,8 +13,8 @@ const Header = () => {
          .catch(error => console.error(error));
    }
    return (
-      <div>
-         <div className="navbar bg-base-100">
+      <div data-theme="night">
+         <div className="navbar bg-base-100 py-5">
             <div className="navbar-start">
                <div className="dropdown">
                   <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -31,8 +31,8 @@ const Header = () => {
                </div>
                <Link to='/' className="btn btn-ghost normal-case text-xl">
                   <div className='flex items-center ml-2 font-bold lg:text-3xl text-base'>
-                     <img className='w-8 mr-2' src={pic} alt="" />
-                     <h3>Kitchen</h3>
+                     <img className='w-14 mr-2' src='https://i.ibb.co/KNR8XZg/image-removebg-preview.png' alt="" />
+                     <h3>The Kitchen</h3>
                   </div>
                </Link>
             </div>
@@ -49,7 +49,7 @@ const Header = () => {
                   user?.uid ?
                      <>
                         <Link to='/add_service' className='lg:text-lg  text-xs font-semibold'>Add_Services</Link>
-                        <button className='mx-1 lg:text-lg text-xs font-semibold' onClick={handleLogOut}> Logout</button>
+                        <button className='mx-2 lg:text-lg text-xs font-semibold' onClick={handleLogOut}> Logout</button>
 
                      </>
                      :
