@@ -1,9 +1,13 @@
 import React from 'react';
+import MainCarousel from './AwesomeSlider';
 
 const Home = () => {
    return (
 
       <div>
+         <div className='mb-36'>
+            <MainCarousel></MainCarousel>
+         </div>
          <div className="hero w-full " data-theme="night">
             <div className="hero-content grid gap-10 md:grid-cols-2 flex-col lg:flex-row min-h-screen">
                <div className="card flex-shrink-0 w-full max-w-sm   mx-auto text-left">

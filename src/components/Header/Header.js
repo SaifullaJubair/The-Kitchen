@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
 import pic from '../../assets/404.jpg'
 import { AuthContext } from '../Context/AuthProvider';
+import './Header.css'
 
 const Header = () => {
    const { user, logOut } = useContext(AuthContext)
@@ -24,8 +25,7 @@ const Header = () => {
 
                      <li><Link to='/services'>Services</Link></li>
                      <li><Link to='/my_review'>My Review</Link></li>
-                     <li tabIndex={0}>
-                        <Link to='/blogs' className="justify-between">Blogs</Link>
+                     <li><Link to='/blogs' className="justify-between">Blogs</Link>
                      </li>
                   </ul>
                </div>
@@ -48,14 +48,14 @@ const Header = () => {
                {
                   user?.uid ?
                      <>
-                        <Link to='/add_service' className='lg:text-lg  text-xs font-semibold'>Add_Services</Link>
-                        <button className='mx-2 lg:text-lg text-xs font-semibold' onClick={handleLogOut}> Logout</button>
+                        <Link to='/add_service' className='lg:text-lg  text-xs font-semibold nav'>Add_Services</Link>
+                        <button className='mx-2 lg:text-lg text-xs font-semibold nav' onClick={handleLogOut}> Logout</button>
 
                      </>
                      :
                      <>
-                        <Link to='/register' className='mx-1 lg:text-lg text-xs font-semibold'>SignUp</Link>
-                        <Link to='/login' className='mr-1 lg:text-lg text-xs font-semibold'>Login</Link>
+                        <Link to='/register' className='mx-1 lg:text-lg text-xs font-semibold nav'>SignUp</Link>
+                        <Link to='/login' className='mr-1 lg:text-lg text-xs font-semibold nav'>Login</Link>
                      </>
                }
                <Link to='/profile'>
