@@ -7,6 +7,7 @@ import Home from "../Home/Home";
 import Login from "../Login/Login";
 import MyReview from "../MyReview/MyReview";
 import Register from "../Register/Register";
+import ServiceDetails from "../ServiceDetails/ServiceDetails";
 import Services from "../Services/Services";
 import PrivateRoute from "./PrivateRoute";
 import UnKnownRoutes from "./UnKnownRoutes";
@@ -27,6 +28,10 @@ export const routes = createBrowserRouter([
          {
             path: '/services',
             element: <Services></Services>
+         },
+         {
+            path: '/service-details/:id',
+            element: <ServiceDetails></ServiceDetails>
          },
          {
             path: '/add_service',
