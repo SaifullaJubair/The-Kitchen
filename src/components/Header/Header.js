@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
-import pic from '../../assets/404.jpg'
 import { AuthContext } from '../Context/AuthProvider';
 import './Header.css'
 
@@ -30,8 +29,8 @@ const Header = () => {
                   </ul>
                </div>
                <Link to='/' className="btn btn-ghost normal-case text-xl">
-                  <div className='flex items-center ml-2 font-bold lg:text-3xl text-base'>
-                     <img className='w-14 mr-2' src='https://i.ibb.co/KNR8XZg/image-removebg-preview.png' alt="" />
+                  <div className='flex items-center ml-2 font-bold lg:text-3xl text-xs'>
+                     <img className='lg:w-14 w-10 mr-2' src='https://i.ibb.co/KNR8XZg/image-removebg-preview.png' alt="" />
                      <h3>The Kitchen</h3>
                   </div>
                </Link>
@@ -42,13 +41,13 @@ const Header = () => {
                   <ul className="menu menu-horizontal">
                      <li className='mx-1'><Link to='/services'>Services</Link></li>
                      <li className='mx-1'><Link to='blogs'>Blogs</Link></li>
-                     <li className='mx-1'><Link to='my_review'>My Review</Link></li>
                   </ul>
                </div>
                {
                   user?.uid ?
                      <>
-                        <Link to='/add_service' className='lg:text-lg  text-xs font-semibold nav'>Add_Services</Link>
+                        <Link to='/add_service' className='lg:text-lg  text-xs font-semibold nav mx-2'>Add_Services</Link>
+                        <Link to='my_review' className='lg:text-lg  text-xs font-semibold nav'>My Review</Link>
                         <button className='mx-2 lg:text-lg text-xs font-semibold nav' onClick={handleLogOut}> Logout</button>
 
                      </>

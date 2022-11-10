@@ -25,7 +25,7 @@ const ServiceDetails = () => {
          reviewer_img,
          message,
       }
-      fetch('http://localhost:5000/reviews', {
+      fetch('https://kitchen-server-a11.vercel.app/reviews', {
          method: 'POST',
          headers: {
             'content-type': 'application/json'
