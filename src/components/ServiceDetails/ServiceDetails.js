@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
+import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceDetails = () => {
    const service = useLoaderData()
-   const { _id, service_name, price } = service
+   const { _id, image, service_name, price, details } = service
    const { user } = useContext(AuthContext)
 
    const handleService = (event) => {
@@ -47,6 +50,27 @@ const ServiceDetails = () => {
 
 
       <div>
+
+         <div className="card card-compact w-96 bg-base-100 shadow-xl mx-auto my-5">
+            <figure>
+               <PhotoProvider>
+                  <PhotoView src={image}>
+                     <img src={image} alt="" />
+                  </PhotoView>
+               </PhotoProvider>
+
+            </figure>
+            <div className="card-body">
+               <h2 className="card-title text-2xl">{service_name}</h2>
+               <p className='text-start'>Details: {details}</p>
+               <p className='text-xl text-start py-5'> Price: <span className=' text-orange-600'>$ {price}</span> </p>
+               <div className="card-actions ">
+                  <Link to={`/service/${_id}`}>
+                     <button className="btn  bg-amber-400 rounded-lg">Details</button>
+                  </Link>
+               </div>
+            </div>
+         </div>
          <form onSubmit={handleService}>
             <h2 className='text-4xl'>{service_name}</h2>
             <h4 className='text-3xl'>Price: {price}</h4>

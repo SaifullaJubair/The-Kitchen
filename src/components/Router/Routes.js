@@ -48,7 +48,7 @@ export const routes = createBrowserRouter([
          },
          {
             path: '/blogs',
-            element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
+            element: <Blogs></Blogs>
          },
          {
             path: '/footer',

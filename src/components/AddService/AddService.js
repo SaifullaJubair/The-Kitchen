@@ -1,48 +1,66 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
-import AuthProvider from '../Context/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 
 const AddService = () => {
    const service = useLoaderData()
-   const { _id, service_name, price } = service
-   const { user } = useContext(AuthProvider)
 
-   const handleService = (event) => {
+   const handleAddService = (event) => {
       event.preventDefault()
       const form = event.target;
-      const name = `${form.firstName.value} ${form.lastName.value}`
-      const phone = form.phone.value;
-      const email = user?.email || 'Unregistered';
-      const message = form.message.value;
-      // console.log(name, phone, email)
+      const service_name = form.service_name.value;
+      const details = form.details.value;
+      const image = form.image.value;
+      const price = form.price.value;
 
-      const order = {
-         service: _id,
-         serviceName: service_name,
+      const service = {
+         service_name,
          price,
-         customer: name,
-         email,
-         phone,
-         message,
+         details,
+         image
       }
+
+      fetch('https://kitchen-server-a11.vercel.app/services', {
+         method: 'POST',
+         headers: {
+            'content-type': 'application/json'
+         },
+         body: JSON.stringify(service)
+      })
+         .then(res => res.json())
+         .then(data => {
+            // console.log(data)
+            if (data.acknowledged) {
+               toast('Successfully review post');
+            }
+            form.reset()
+         })
+         .catch(error => console.log(error))
    }
    return (
       <div>
          <Helmet><title>Add-Services</title></Helmet>
          <div>
-            <form onSubmit={handleService}>
-               <h2 className='text-4xl'>{service_name}</h2>
-               <h4 className='text-3xl'>Price: {price}</h4>
-               <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 '>
-                  <input name='firstName' type="text" placeholder="First Name" className="input input-bordered  w-full" />
-                  <input name='lastName' type="text" placeholder="Last Name" className="input input-bordered  w-full" />
-                  <input name='phone' type="text" placeholder="Your Phone" className="input input-bordered  w-full" required />
-                  <input name='email' type="text" placeholder="Your Email" className="input input-bordered w-full" defaultValue={user.email} readOnly />
+            <div>
+               <h1 className='text-center text-4xl font-bold my-20'>Add Service.</h1>
+            </div>
+            <form onSubmit={handleAddService}>
+               {/* <h2 className='text-4xl'>{service_name}</h2>
+               <h4 className='text-3xl'>Price: {price}</h4> */}
+               <div className=' '>
+
+                  <input name='service_name' type="text" placeholder="Service Name" className="input input-bordered  w-full lg:w-1/2 md:w-2/3  my-4 " required /><br />
+
+                  <input name='image' type="text" placeholder="Service Image URL" className="input input-bordered  w-full lg:w-1/2 md:w-2/3  my-4" required /><br />
+
+                  <input type="number" name="price" placeholder='Price' className='input input-bordered w-full lg:w-1/2 md:w-2/3  my-4' /><br />
+
+                  <textarea name='details' className="textarea textarea-bordered h-24 my-5 w-full lg:w-1/2 md:w-2/3 " placeholder="Service Details" required></textarea>
                </div>
-               <textarea name='message' className="textarea textarea-bordered h-24 my-5 w-full" placeholder="Your Message" required></textarea>
-               <input type="submit" className='btn btn-primary' value="Place Your Order" />
+
+               <input type="submit" className='btn btn-primary mb-20' value="Add service" />
             </form>
          </div>
       </div>
