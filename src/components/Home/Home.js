@@ -11,15 +11,14 @@ const Home = () => {
          <Helmet>
             <title>The Kitchen: Home</title>
          </Helmet>
-
-
          {/* home carousel slider  */}
          <div className='mb-36'>
             <MainCarousel></MainCarousel>
          </div>
 
          {/* services  */}
-         <Services></Services>
+
+         <Services length={3}></Services>
          <div className='text-center mb-20'>
             <Link to='/services'><button className='btn btn-warning'>More Services</button></Link>
          </div>

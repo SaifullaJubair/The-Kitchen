@@ -3,10 +3,17 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 
-const Services = () => {
+const Services = ({ length }) => {
    const [services, setServices] = useState([])
+   let url = ''
+   if (length) {
+      url = `http://localhost:5000/services?c=${length}`
+   }
+   else {
+      url = `http://localhost:5000/services`
+   }
    useEffect(() => {
-      fetch('https://kitchen-server-a11.vercel.app/services')
+      fetch(url)
          .then(res => res.json())
          .then(data => setServices(data))
    }, [])

@@ -24,12 +24,26 @@ const Header = () => {
 
                      <li><Link to='/services'>Services</Link></li>
                      <li><Link to='/my_review'>My Review</Link></li>
-                     <li><Link to='/blogs' className="justify-between">Blogs</Link>
+                     <li><Link to='/blogs'>Blogs</Link>
                      </li>
+                     {
+                        user?.uid ?
+                           <>
+                              <li><Link to='/add_service'>Add_Services</Link></li>
+                              <li><Link to='my_review'>My Review</Link></li>
+                              <li><button className='nav' onClick={handleLogOut}> Logout</button></li>
+
+                           </>
+                           :
+                           <>
+                              <li><Link to='/register'>SignUp</Link></li>
+                              <li><Link to='/login'>Login</Link></li>
+                           </>
+                     }
                   </ul>
                </div>
                <Link to='/' className="btn btn-ghost normal-case text-xl">
-                  <div className='flex items-center ml-2 font-bold lg:text-3xl text-xs'>
+                  <div className='flex items-center ml-2 font-bold lg:text-3xl text-base'>
                      <img className='lg:w-14 w-10 mr-2' src='https://i.ibb.co/KNR8XZg/image-removebg-preview.png' alt="" />
                      <h3>The Kitchen</h3>
                   </div>
@@ -41,23 +55,24 @@ const Header = () => {
                   <ul className="menu menu-horizontal">
                      <li className='mx-1'><Link to='/services'>Services</Link></li>
                      <li className='mx-1'><Link to='blogs'>Blogs</Link></li>
+                     {
+                        user?.uid ?
+                           <>
+                              <li><Link to='/add_service' className='lg:text-lg  text-xs font-semibold nav mx-2'>Add_Services</Link></li>
+                              <li><Link to='my_review' className='lg:text-lg  text-xs font-semibold nav'>My Review</Link></li>
+                              <button className='mx-2 lg:text-lg text-xs font-semibold nav' onClick={handleLogOut}> Logout</button>
+
+                           </>
+                           :
+                           <>
+                              <li><Link to='/register' className='mx-1 lg:text-lg text-xs font-semibold nav'>SignUp</Link></li>
+                              <li><Link to='/login' className='mr-1 lg:text-lg text-xs font-semibold nav'>Login</Link></li>
+                           </>
+                     }
                   </ul>
                </div>
-               {
-                  user?.uid ?
-                     <>
-                        <Link to='/add_service' className='lg:text-lg  text-xs font-semibold nav mx-2'>Add_Services</Link>
-                        <Link to='my_review' className='lg:text-lg  text-xs font-semibold nav'>My Review</Link>
-                        <button className='mx-2 lg:text-lg text-xs font-semibold nav' onClick={handleLogOut}> Logout</button>
 
-                     </>
-                     :
-                     <>
-                        <Link to='/register' className='mx-1 lg:text-lg text-xs font-semibold nav'>SignUp</Link>
-                        <Link to='/login' className='mr-1 lg:text-lg text-xs font-semibold nav'>Login</Link>
-                     </>
-               }
-               <Link to='/profile'>
+               <Link to='/user'>
                   {
                      user?.photoURL ?
                         <>

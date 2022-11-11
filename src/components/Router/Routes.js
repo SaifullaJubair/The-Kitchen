@@ -9,6 +9,8 @@ import MyReview from "../MyReview/MyReview";
 import Register from "../Register/Register";
 import ServiceDetails from "../ServiceDetails/ServiceDetails";
 import Services from "../Services/Services";
+import UpdateReview from "../UpdateReview/UpdateReview";
+import User from "../User/User";
 import PrivateRoute from "./PrivateRoute";
 import UnKnownRoutes from "./UnKnownRoutes";
 
@@ -32,7 +34,7 @@ export const routes = createBrowserRouter([
          {
             path: '/service/:id',
             element: <ServiceDetails></ServiceDetails>,
-            loader: ({ params }) => fetch(`https://kitchen-server-a11.vercel.app/services/${params.id}`)
+            loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
          },
          {
             path: '/add_service',
@@ -49,6 +51,14 @@ export const routes = createBrowserRouter([
          {
             path: '/blogs',
             element: <Blogs></Blogs>
+         },
+         {
+            path: '/user',
+            element: <PrivateRoute><User></User></PrivateRoute>
+         },
+         {
+            path: '/updateReview/:id',
+            element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
          },
          {
             path: '/footer',
