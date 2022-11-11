@@ -34,7 +34,7 @@ export const routes = createBrowserRouter([
          {
             path: '/service/:id',
             element: <ServiceDetails></ServiceDetails>,
-            loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            loader: ({ params }) => fetch(`https://kitchen-server-a11.vercel.app/services/${params.id}`)
          },
          {
             path: '/add_service',

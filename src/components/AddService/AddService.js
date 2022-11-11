@@ -22,7 +22,7 @@ const AddService = () => {
          image
       }
 
-      fetch('http://localhost:5000/services', {
+      fetch('https://kitchen-server-a11.vercel.app/services', {
          method: 'POST',
          headers: {
             'content-type': 'application/json'

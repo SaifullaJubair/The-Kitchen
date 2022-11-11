@@ -7,10 +7,10 @@ const Services = ({ length }) => {
    const [services, setServices] = useState([])
    let url = ''
    if (length) {
-      url = `http://localhost:5000/services?c=${length}`
+      url = `https://kitchen-server-a11.vercel.app/services?c=${length}`
    }
    else {
-      url = `http://localhost:5000/services`
+      url = `https://kitchen-server-a11.vercel.app/services`
    }
    useEffect(() => {
       fetch(url)
