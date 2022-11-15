@@ -58,14 +58,13 @@ const ServiceDetails = () => {
          .catch(error => console.log(error))
 
    }
-   const { message } = reviews
    return (
 
 
       <div>
 
-         <div className='flex justify-evenly  lg:my-20'>
-            <div className="card  w-1/3  shadow-xl">
+         <div className='flex flex-col lg:flex-row justify-evenly  lg:my-20'>
+            <div className="card  md:w-11/12 lg:w-1/3  shadow-xl">
                <figure>
                   <PhotoProvider>
                      <PhotoView src={image}>
@@ -74,7 +73,7 @@ const ServiceDetails = () => {
                   </PhotoProvider>
 
                </figure>
-               <div className="card-body">
+               <div className="card-body ">
                   <h2 className="card-title text-2xl">{service_name}</h2>
                   <p className='text-start'>Details: {details}</p>
                   <p className='text-xl text-start py-5'> Price: <span className=' text-orange-600'>$ {price}</span> </p>
@@ -82,7 +81,7 @@ const ServiceDetails = () => {
                </div>
             </div>
 
-            <div>
+            <div className='my-6'>
                {
                   user?.uid ?
                      <div>
@@ -107,7 +106,7 @@ const ServiceDetails = () => {
                      </div>
                      :
                      <div>
-                        <p className='text-xl'>Please <Link to='/login' className='mr-1 lg:text-lg text-xs font-semibold nav'>Login</Link> To add review</p>
+                        <p className='text-xl'>Please <Link to='/login' className='mr-1 lg:text-lg text-sm font-semibold nav '>Login</Link> To add review</p>
                      </div>
                }
             </div>
