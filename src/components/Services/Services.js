@@ -21,7 +21,7 @@ const Services = ({ length }) => {
       <div data-theme="light">
          <div>
             <Helmet><title>All-Services</title></Helmet>
-            <h1 className=' text-3xl md:text-4xl lg:text-5xl font-bold text-orange-400  my-5'>Our Services</h1>
+            <h1 className=' text-3xl md:text-4xl lg:text-5xl font-bold text-orange-400  lg:my-5'>Our Services</h1>
          </div>
          <div className='grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10'>
             {
